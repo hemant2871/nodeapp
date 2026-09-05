@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+</head>
+<style>
+    /* Global Styles */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+    body {
+        font-family: 'Inter', sans-serif;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        color: #333;
+    }
+
+    h1 {
+        margin-top: 40px;
+        font-weight: 600;
+        font-size: 2.2rem;
+        color: #222;
+    }
+
+    p {
+        font-size: 1rem;
+        color: #555;
+    }
+
+    /* Glassmorphic Form */
+    form {
+        margin-top: 30px;
+        background: rgba(255, 255, 255, 0.25);
+        border-radius: 12px;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        padding: 30px 40px;
+        width: 100%;
+        max-width: 420px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .field {
+        margin-bottom: 15px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .field label {
+        margin-bottom: 5px;
+        font-weight: 600;
+        color: #222;
+    }
+
+    .field input {
+        padding: 10px 12px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+    }
+
+    .field input:focus {
+        outline: none;
+        border-color: #4CAF50;
+        box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+    }
+
+    #formBtn {
+        color: #fff;
+        background: linear-gradient(135deg, #4CAF50 0%, #388E3C 100%);
+        border: none;
+        border-radius: 6px;
+        padding: 12px 20px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+        align-self: flex-end;
+    }
+
+    #formBtn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+        form {
+            padding: 20px;
+        }
+    }
+</style>
+<body>
+    <h1>Hi User, welcome to our App!</h1>
+    <p>You can signup to the platform to access all features.</p>
+
+    <form action="/addUser" method="POST" target="_blank" id = "signupForm">
+        <div class="field">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="field">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <button  id="formBtn" >Sign Up</button>
+    </form>
+
+    <script>
+        function resetForm() {
+            let myForm = document.getElementById("signupForm");
+            myForm.reset();
+            return false; // Prevent form submission
+        }
+    </script>
+</body>
+</html>
